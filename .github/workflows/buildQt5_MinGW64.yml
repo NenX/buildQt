@@ -1,13 +1,13 @@
-name: build_Qt5.15.16_MinGW64(unavailable)
+name: build_Qt5.15.18_MinGW64(unavailable)
 
-# 暂不可用，请先使用build_Qt5.15.16_MinGW810_64
-# Qt5.15.16官方使用MinGW810_64 OK，本次使用MinGW1510_64_UCRT，暂不可用
+# 暂不可用，请先使用build_Qt5.15.18_MinGW810_64
+# Qt5.15.18官方使用MinGW810_64 OK，本次使用MinGW1510_64_UCRT，暂不可用
 
 on: workflow_dispatch
 #on: [push, pull_request]
 
 env:
-  QT_VERSION: 5.15.16
+  QT_VERSION: 5.15.18
   QT_VERSION2: 5.15
   FILE_NAME: shared-Debug_mingw1510_64_UCRT
 
@@ -18,11 +18,11 @@ jobs:
     steps:
     # 检出本仓库
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     # 安装python
     - name: Setup Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: '3.13'
         architecture: 'x64'
@@ -31,7 +31,7 @@ jobs:
     - name: Setup Perl
       run: |
         cd ..  #Directory: D:\a\buildQt
-        curl -L -o strawberry-perl-64bit-portable.zip https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54001_64bit_UCRT/strawberry-perl-5.40.0.1-64bit-portable.zip
+        curl -L -o strawberry-perl-64bit-portable.zip https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54201_64bit/strawberry-perl-5.42.0.1-64bit-portable.zip
         unzip -q strawberry-perl-64bit-portable.zip -d ./Strawberry
 
     # 安装 MinGW64    
